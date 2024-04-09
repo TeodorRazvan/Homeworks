@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.card-group {
+  margin: top 28px;
+  margin-bottom: 28px;
+  margin-left: 93px;
+  margin-right: 70px;
+  gap: 37px;
+  border: none;
+}
+.card {
+  border: none;
+}
+.card-img-top {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+img {
+  height: 435px;
+  width: auto;
+}
+.card-title {
+  text-align: center;
+  font-size: 23px;
+  margin-top: 20px;
+  font-weight: 500;
+  color: black;
+}
+.rating-container {
+  text-align: center;
+  margin: 15px 0 25px;
+}
+.bi-star-fill {
+  color: orange;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+span.star-img1 {
+  margin-right: 30px;
+}
+.bi-heart-fill-gray {
+  color: rgba(128, 128, 128, 0.336);
+  margin-bottom: 10px;
+}
+span.heart-img1 {
+  margin-left: 10px;
+}
+.card-text,
+span {
+  text-align: center;
+  color: gray;
+  font-weight: 600;
+  font-size: 16px;
+}
+.bi-heart-fill-red {
+  color: rgb(218, 68, 68);
+}
+.d-grid {
+  text-align: center;
+  margin-top: 30px;
+}
+.btn {
+  border-radius: 0;
+  margin-right: 10px;
+  font-size: 15px;
+  padding: 7px 25px;
+  font-weight: 1000;
+}
+.btn-primary-cart {
+  background-color: black;
+  color: white;
+  border: 3px solid black;
+}
+.btn-primary-view {
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+}
+@media screen and (max-width: 768px) {
+  .card-title {
+    font-size: 20px;
+  }
+  .btn {
+    font-size: 12px;
+  }
+}
