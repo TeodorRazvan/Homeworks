@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      textarea {
+        width: calc(100% - 12px);
+        padding: 6px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+
+      input[type="radio"] {
+        margin-right: 5px;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      .submit-btn {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .submit-btn:hover {
+        background-color: #0056b3;
+      }
+
+      .error {
+        border: 1px solid red;
+      }
+
+      .confirmation {
+        display: none;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #7fff7f;
+        border: 1px solid #00cc00;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Contact Form</h2>
+      <form id="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required />
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" required />
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female">Female</label>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+      <div class="confirmation" id="confirmation"></div>
+    </div>
+
+    <script>
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const nameInput = document.getElementById("name");
+          const emailInput = document.getElementById("email");
+          const messageInput = document.getElementById("message");
+
+          // Remove any existing error styles
+          nameInput.classList.remove("error");
+          emailInput.classList.remove("error");
+          messageInput.classList.remove("error");
+
+          // Validate inputs
+          let isValid = true;
+          if (!nameInput.value.trim()) {
+            nameInput.classList.add("error");
+            isValid = false;
+          }
+          if (!emailInput.value.trim()) {
+            emailInput.classList.add("error");
+            isValid = false;
+          }
+          if (!messageInput.value.trim()) {
+            messageInput.classList.add("error");
+            isValid = false;
+          }
+
+          // If validation passes, show confirmation
+          if (isValid) {
+            const confirmationBanner = document.getElementById("confirmation");
+            confirmationBanner.innerText = `Thank you for contacting us, ${nameInput.value}!`;
+            confirmationBanner.style.display = "block";
+
+            // Print form data in console
+            console.log("Name:", nameInput.value);
+            console.log("Email:", emailInput.value);
+            console.log(
+              "Gender:",
+              document.querySelector('input[name="gender"]:checked').value
+            );
+            console.log("Message:", messageInput.value);
+
+            // Reset form
+            document.getElementById("contact-form").reset();
+          }
+        });
+    </script>
+  </body>
+</html>
